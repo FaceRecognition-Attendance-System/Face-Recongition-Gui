@@ -65,5 +65,4 @@ Now you are almost ready to run the project.
 Finally you can run the following command and enjoy the application.
 
 `python face_recognition_ref.application_main`
-
 -------------------
