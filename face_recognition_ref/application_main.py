@@ -191,7 +191,7 @@ class Application(tk.Tk):
         tk.Tk.__init__(self, *args, **kwargs)
         app = self
         app.title('Face Recognition Attendance System')
-        app.iconbitmap('assets/face.ico')
+        app.iconbitmap("assets/face.ico")
         app.geometry('1530x790')
         menu = Menu(app)
         app.config(menu=menu)

@@ -392,7 +392,7 @@ test = ["pytest", "pytest-cov"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "894bbc0b1cfa792668dc6df73d6a336551206b2d593d28366c7f1e8a5963d1a7"
+content-hash = "6338d520ec1055dfd23a8a347c52a8ddd72be725dc03a1a0d74e82fb666e7fda"
 
 [metadata.files]
 atomicwrites = [

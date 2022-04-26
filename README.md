@@ -37,8 +37,33 @@ when the user enters to the system , this page will be appeared to the user , it
 ![](Wireframe/2.png)
 
 ---------------------------
+User Interface:
 
-Logic
-user interface
+Firts of all we would like to introduce the user to the system , so we will show the user the following interface .
+ 
+You cann follow the commands in the terminal.
+
+First you need to clone our open source project from github.
+
+`git clone <Code>`
+
+After cloning the project you need to cd into the project name.
+
+`cd <project name>`
+
+
+We recommend opening the project with PyCharm.After that you need to install the dependencies.
+
+`poetry install`
+
+> It may take some time so be patient.
+
+Now you are almost ready to run the project.
+
+`poetry shell`
+
+Finally you can run the following command and enjoy the application.
+
+`python face_recognition_ref.application_main`
 
 -------------------
