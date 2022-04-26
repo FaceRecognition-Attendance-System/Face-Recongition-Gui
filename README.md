@@ -23,10 +23,6 @@ the main user for this system is the HR managers , the first page that will appe
  
 ![](Wireframe/1.png)
 
-if the user does not has a profile , he will Sign Up to create a new account so this regestration page will appear to him when pressing on Sign Up ( this is a stretch goal )
-
-![](Wireframe/3.png)
-
 when the user enters to the system , this page will be appeared to the user , it contains :
 - logout : to exit the system .
 - attendence today : it will navigate to another page that show the user a report for employees attendence  that presents the details for each employee : the name , day ,date , time , and if they late or not . 
@@ -36,6 +32,13 @@ when the user enters to the system , this page will be appeared to the user , it
 
 ![](Wireframe/5.png)
 
-- live cam : this will show the user  the live stream for webcam (this is stretch goal )
+- live cam : this will show the user  the live stream for webcam.
 
 ![](Wireframe/2.png)
+
+---------------------------
+
+Logic
+user interface
+
+-------------------
