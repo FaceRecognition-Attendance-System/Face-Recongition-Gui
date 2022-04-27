@@ -6,6 +6,10 @@ import face_recognition
 
 
 class Recognition:
+    """
+    This class handles the face recognintion procces, the encoding for the images and comparing it to the images dataset.
+    Taking attendance for the employee recognized by the camera.
+    """
     def __init__(self):
         pass
 
@@ -18,6 +22,7 @@ class Recognition:
         path = 'Images'
         images = []
         employees_names = []
+        # Returns the list of names in the dicrectory path
         my_list = os.listdir(path)
         print(my_list)
 
@@ -28,6 +33,12 @@ class Recognition:
         print(employees_names)
 
         def findEncodings(images):
+            """
+            This method will  return the 128-dimension face encoding for each face in the image.
+            input: images of the employees faces
+            output: the 128 dimension face encoding in a list
+                
+            """
             encode_list = []
             for image in images:
                 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -36,6 +47,11 @@ class Recognition:
             return encode_list
 
         def mark_attendance(name):
+            """
+            This method will mark attendance for employees once they dedicted by the camera.
+            input : The name of the employee.
+            output: Write lines on the csv file with the attendance information.
+            """
             def write_csv(name):
                 now = datetime.now()
                 day = now.strftime('%A')
@@ -75,18 +91,21 @@ class Recognition:
         while True:
             success, img = cap.read()
             img_s = cv2.resize(img, (0, 0), None, 0.25, 0.25)
-            img_s = cv2.cvtColor(img_s, cv2.COLOR_BGR2RGB)
+            img_s = cv2.cvtColor(img_s, cv2.COLOR_BGR2RGB) # converting the image colors to make readable to recognize the face 
 
-            faces_cur_frame = face_recognition.face_locations(img_s)
-            encodes_cur_frame = face_recognition.face_encodings(img_s, faces_cur_frame)
+            faces_cur_frame = face_recognition.face_locations(img_s) # Detetciting
+            encodes_cur_frame = face_recognition.face_encodings(img_s, faces_cur_frame) # return 128-dimension face encoding for the face in the image.
 
             for encodeFace, faceLoc in zip(encodes_cur_frame, faces_cur_frame):
-                matches = face_recognition.compare_faces(encode_list_known, encodeFace)
-                face_dis = face_recognition.face_distance(encode_list_known, encodeFace)
+                matches = face_recognition.compare_faces(encode_list_known, encodeFace) # comparing the data from the images path with the list of face found
+                face_dis = face_recognition.face_distance(encode_list_known, encodeFace) # The distance tells you how similar the faces are. 
                 match_index = np.argmin(face_dis)
                 print(match_index)
 
                 if matches[match_index]:
+                    """
+                        This will draw the rectangular once the face dedicted.with the name of th employee within the box 
+                    """
                     name = employees_names[match_index].title()
                     y1, x2, y2, x1 = faceLoc
                     y1, x2, y2, x1 = y1 * 4, x2 * 4, y2 * 4, x1 * 4
@@ -94,6 +113,7 @@ class Recognition:
                     cv2.rectangle(img, (x1, y2 - 35), (x2, y2), (0, 255, 0), cv2.FILLED)
                     cv2.putText(img, name, (x1 + 6, y2 - 6), cv2.FONT_HERSHEY_COMPLEX, 1, (255, 255, 255), 2)
                     mark_attendance(name)
+
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
 

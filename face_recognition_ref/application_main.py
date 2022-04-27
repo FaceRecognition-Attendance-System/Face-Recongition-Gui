@@ -3,12 +3,10 @@ from tkinter import *
 from tkinter import messagebox
 from PIL import Image, ImageTk
 import webbrowser
-# from functools import partial
 from face_recognition_ref.Recognition import Recognition
 from pandastable import Table
 import pandas as pd
 from datetime import datetime
-
 
 class FirstPage(tk.Frame):
     def __init__(self, parent, controller):
@@ -191,7 +189,7 @@ class Application(tk.Tk):
         tk.Tk.__init__(self, *args, **kwargs)
         app = self
         app.title('Face Recognition Attendance System')
-        app.iconbitmap('assets/face.ico')
+        app.iconbitmap("assets/face.ico")
         app.geometry('1530x790')
         menu = Menu(app)
         app.config(menu=menu)
