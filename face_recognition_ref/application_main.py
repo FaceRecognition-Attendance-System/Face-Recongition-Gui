@@ -3,12 +3,10 @@ from tkinter import *
 from tkinter import messagebox
 from PIL import Image, ImageTk
 import webbrowser
-# from functools import partial
 from face_recognition_ref.Recognition import Recognition
 from pandastable import Table
 import pandas as pd
 from datetime import datetime
-
 
 class FirstPage(tk.Frame):
     def __init__(self, parent, controller):
